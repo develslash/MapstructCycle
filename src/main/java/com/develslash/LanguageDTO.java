@@ -1,6 +1,7 @@
 package com.develslash;
 
 import java.util.List;
+import java.util.Objects;
 
 public class LanguageDTO {
 
@@ -30,5 +31,18 @@ public class LanguageDTO {
 
     public void setPeople(List<PersonDTO> people) {
         this.people = people;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LanguageDTO that = (LanguageDTO) o;
+        return Objects.equals(getId(), that.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 }
